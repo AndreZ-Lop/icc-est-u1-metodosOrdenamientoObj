@@ -2,6 +2,7 @@ import models.Person;
 import controllers.PersonController;
 public class App {
     public static void main(String[] args) throws Exception {
+        PersonController orden = new PersonController();
         Person [] personas = {
             new Person ("Pedro",25),
             new Person ("Ana",19),
@@ -10,14 +11,13 @@ public class App {
             new Person ("Diego",15)
         };
         System.out.println("==== Personas sin Ordenar ====");
-        for(Person rPersona : personas){
-            System.out.println(rPersona.toString());
-        }
-        System.out.println("==== Personas Ordenadas ====");
-        PersonController orden = new PersonController();
+        orden.mostrarArreglo(personas);
+        System.out.println("==== Personas Ordenadas Por Edad====");
         orden.sortPersonByAge(personas);
-        for(Person rPersona : personas){
-            System.out.println(rPersona.toString());
-        }
+        orden.mostrarArreglo(personas);
+
+        System.out.println("==== Personas Ordenadas Por Nombre ====");
+        orden.sortPersonByName(personas);
+        orden.mostrarArreglo(personas);
     }
 }
